@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">마이틴 바로가기</string>
+    <string name="alert_msg_exit">종료 하시겠습니까?</string>
+    <string name="button_yes">예</string>
+    <string name="button_no">아니요</string>
+    <string name="home">홈</string>
+    <string name="reload">새로고침</string>
+    <string name="exit">종료</string>
+</resources>
