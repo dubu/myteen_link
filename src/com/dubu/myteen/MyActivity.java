@@ -89,9 +89,14 @@ public class MyActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-                if (!url.startsWith("http:")) {
-                    try {
+                if (url.startsWith("http:") || url.startsWith("https:")) {
+                    //todo
 
+                }else if(url.startsWith("intent://createShortcut")){
+                    toastNotUse();
+                    return true;
+                }else{
+                    try {
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse(url));
                         MyActivity.this.startActivity(intent);
@@ -100,6 +105,7 @@ public class MyActivity extends Activity {
                         Log.e("dubu", "Could not load url" + url);
                     }
                     return true;
+
                 }
                 return super.shouldOverrideUrlLoading(view, url);
             }
@@ -112,7 +118,6 @@ public class MyActivity extends Activity {
 
     }
 
-    @Deprecated
     private void toastNotUse() {
         Toast toast = Toast.makeText(getApplicationContext(), "앱에서는 지원하지 않습니다.", Toast.LENGTH_SHORT);
         toast.show();
