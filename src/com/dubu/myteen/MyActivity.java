@@ -20,11 +20,13 @@ public class MyActivity extends Activity {
     public static final String MYTEEN_HOME = "http://m.my.kids.daum.net";
     public static final String GROUP_TALK_URL = MYTEEN_HOME + "/myteen/do/mobile/group_talk";
     public static final String BATTLE_URL = MYTEEN_HOME + "/myteen/do/mobile/battle/rank";
+    public static final String NOVEL_URL = MYTEEN_HOME + "/myteen/do/mobile/novel";
     public static final int HOME_ID = Menu.FIRST;
     private static final int RELOAD_ID = Menu.FIRST + 1;
     private static final int EXIT_ID = Menu.FIRST + 2;
     private static final int GROUP_TALK_ID = Menu.FIRST + 3;
     private static final int BATTLE_ID = Menu.FIRST + 4;
+    private static final int NOVEL_ID = Menu.FIRST + 5;
     private final static int FILECHOOSER_RESULTCODE = 1;
     private WebView mWebView;
     private ValueCallback<Uri> mUploadMessage;
@@ -158,6 +160,7 @@ public class MyActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean result = super.onCreateOptionsMenu(menu);
         menu.add(0, HOME_ID, 0, R.string.home);
+        menu.add(0, NOVEL_ID, 0, R.string.novel);
         menu.add(0, GROUP_TALK_ID, 0, R.string.talk);
         menu.add(0, BATTLE_ID, 0, R.string.battle);
         menu.add(0, RELOAD_ID, 0, R.string.reload);
@@ -176,6 +179,9 @@ public class MyActivity extends Activity {
                 return true;
             case BATTLE_ID:
                 mWebView.loadUrl(BATTLE_URL);
+                return true;
+            case NOVEL_ID:
+                mWebView.loadUrl(NOVEL_URL);
                 return true;
             case RELOAD_ID:
                 mWebView.reload();
